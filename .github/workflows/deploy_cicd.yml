@@ -18,7 +18,7 @@ jobs:
           else
             echo "::set-output name=exists::false"
           fi
-          
+
       - name: Create directory
         run: mkdir -p ./next-app
         if: steps.check_directory.outputs.exists == 'false'
@@ -26,7 +26,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
         with:
-          path: "~/next-app"
+          path: next-app
       
       - name: Install dependencies
         run: npm install
