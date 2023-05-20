@@ -13,11 +13,12 @@ jobs:
       - name: Check if directory exists
         id: check_directory
         run: |
-          if [ -d "./next-app"]: then
+          if [ -d "./next-app" ]; then
             echo "::set-output name=exists::true"
           else
             echo "::set-output name=exists::false"
           fi
+          
       - name: Create directory
         run: mkdir -p ./next-app
         if: steps.check_directory.outputs.exists == 'false'
